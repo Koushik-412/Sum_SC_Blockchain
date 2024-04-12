@@ -1,0 +1,43 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.14;
+
+contract PrimeNumberChecker {
+    uint private number;
+    
+    constructor() 
+    {
+        number= 0; 
+    }
+    
+    function setNumberToCheck(uint _number) public 
+    {
+        number=_number;
+    }
+    
+    function getNumberToCheck()public view returns(uint)
+    {
+        return number;
+    }
+    
+    function isPrime(uint num)public pure returns(bool) 
+    {
+        if (num==1) 
+        {
+            return false;
+        }
+        for (uint i=2;i<=num/2;i++)
+        {
+            if(num%i==0)
+            {
+                return false;
+            }
+        }
+    return true;
+}
+
+    
+    function checkNumber() public view returns(bool)
+    {
+        return isPrime(number);
+    }
+}
